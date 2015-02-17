@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="hu.bme.mit.inf.validator.gui.validateMDModel"
+            name="Validate MD Model">
+      </command>
+      <command
+            id="hu.bme.mit.inf.validator.gui.register"
+            name="Register MD Validation Costraints">
+      </command>
+      <command
+            id="hu.bme.mit.inf.validator.gui.clearRepo"
+            name="Clear Repository">
+      </command>
+      <command
+            id="hu.bme.mit.inf.validator.gui.deleteSelected"
+            name="Delete Selected">
+      </command>
+      <command
+            id="hu.bme.mit.inf.validator.gui.openfile"
+            name="Open containing file">
+      </command>
+      <command
+            id="hu.bme.mit.inf.validator.gui.loadfromfile"
+            name="Load from file">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="hu.bme.mit.inf.validator.gui.ValidateMDModelHandler"
+            commandId="hu.bme.mit.inf.validator.gui.validateMDModel">
+      </handler>
+      <handler
+            class="hu.bme.mit.inf.validator.gui.RegisterPatternsHandler"
+            commandId="hu.bme.mit.inf.validator.gui.register">
+      </handler>
+      <handler
+            class="hu.bme.mit.inf.validator.gui.DeleteSelHandler"
+            commandId="hu.bme.mit.inf.validator.gui.deleteSelected">
+      </handler>
+      <handler
+            class="hu.bme.mit.inf.validator.gui.OpenFileHandler"
+            commandId="hu.bme.mit.inf.validator.gui.openfile">
+      </handler>
+      <handler
+            class="hu.bme.mit.inf.validator.gui.LoadFromEiqHandler"
+            commandId="hu.bme.mit.inf.validator.gui.loadfromfile">
+      </handler>
+      <handler
+            class="hu.bme.mit.inf.validator.gui.ClearRepoHandler"
+            commandId="hu.bme.mit.inf.validator.gui.clearRepo">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <menu
+               label="Add MD constraints to the Repository">
+            <command
+                  commandId="hu.bme.mit.inf.validator.gui.register"
+                  label="Register MD Validation Constraints"
+                  style="push">
+            </command>
+            <separator
+                  name="hu.bme.mit.inf.validator.gui.separator2">
+            </separator>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:hu.bme.mit.inf.validator.gui.mdview">
+         <command
+               commandId="hu.bme.mit.inf.validator.gui.loadfromfile"
+               icon="icons/import_wiz.gif"
+               label="Load Patterns From File"
+               style="push"
+               tooltip="Load validation constraints from a selected .eiq file">
+         </command>
+         <separator
+               name="hu.bme.mit.inf.validator.gui.separator3"
+               visible="true">
+         </separator>
+         <command
+               commandId="hu.bme.mit.inf.validator.gui.openfile"
+               icon="icons/toc_open.gif"
+               label="Open Containing File"
+               style="push"
+               tooltip="Opens the .eiq file that contains the selected pattern">
+         </command>
+         <separator
+               name="hu.bme.mit.inf.validator.gui.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="hu.bme.mit.inf.validator.gui.validateMDModel"
+               icon="icons/signed_yes.gif"
+               label="Validate MD Model"
+               style="push"
+               tooltip="Validates the Opened MD model">
+         </command>
+         <separator
+               name="hu.bme.mit.inf.validator.gui.separator2"
+               visible="true">
+         </separator>
+         <command
+               commandId="hu.bme.mit.inf.validator.gui.deleteSelected"
+               icon="icons/delete_obj.gif"
+               label="Delete Selected Patterns"
+               style="push"
+               tooltip="Delete the patterns selected in the manager tree view">
+         </command>
+         <command
+               commandId="hu.bme.mit.inf.validator.gui.clearRepo"
+               icon="icons/clear.gif"
+               label="Clear Pattern Repository"
+               style="push"
+               tooltip="Clear Pattern Repository">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="MD Validation">
+            <command
+                  commandId="hu.bme.mit.inf.validator.gui.loadfromfile"
+                  icon="icons/import_wiz.gif"
+                  label="Load patterns from .eiq file"
+                  style="push"
+                  tooltip="Load validation constraints from an .eiq file">
+            </command>
+            <command
+                  commandId="hu.bme.mit.inf.validator.gui.openfile"
+                  icon="icons/toc_open.gif"
+                  label="Open source of selected constraint"
+                  style="push"
+                  tooltip="Opens the .eiq file that contains the selected validation constraint">
+            </command>
+            <separator
+                  name="hu.bme.mit.inf.validator.gui.separator4"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="hu.bme.mit.inf.validator.gui.validateMDModel"
+                  icon="icons/signed_yes.gif"
+                  label="Validate MagicDraw model"
+                  style="push">
+            </command>
+            <separator
+                  name="hu.bme.mit.inf.validator.gui.separator5"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="hu.bme.mit.inf.validator.gui.deleteSelected"
+                  icon="icons/delete_obj.gif"
+                  label="Delete selected constraint"
+                  style="push"
+                  tooltip="Deletes the selected validation constraint">
+            </command>
+            <command
+                  commandId="hu.bme.mit.inf.validator.gui.clearRepo"
+                  icon="icons/clear.gif"
+                  label="Clear constraint repository"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         id="org.eclipse.ui.perspectiveExtensions"
+         point="org.eclipse.ui.views">
+      <category
+            id="hu.bme.mit.inf.validator.gui.mdvalidation"
+            name="MagicDraw validation">
+      </category>
+      <view
+            category="hu.bme.mit.inf.validator.gui.mdvalidation"
+            class="hu.bme.mit.inf.validator.gui.views.MDValidationView"
+            id="hu.bme.mit.inf.validator.gui.mdview"
+            name="MagicDraw Validation Manager"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="hu.bme.mit.inf.validator.gui.deleteSelected"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+DEL">
+      </key>
+      <key
+            commandId="hu.bme.mit.inf.validator.gui.loadfromfile"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+5">
+      </key>
+      <key
+            commandId="hu.bme.mit.inf.validator.gui.openfile"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+4">
+      </key>
+      <key
+            commandId="hu.bme.mit.inf.validator.gui.clearRepo"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+      <key
+            commandId="hu.bme.mit.inf.validator.gui.validateMDModel"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+M2+V">
+      </key>
+   </extension>
+
+</plugin>

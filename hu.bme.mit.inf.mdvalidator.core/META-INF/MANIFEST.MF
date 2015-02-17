@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core
+Bundle-SymbolicName: hu.bme.mit.inf.mdvalidator.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0",
+ org.eclipse.incquery.patternlanguage,
+ org.eclipse.incquery.runtime;bundle-version="0.8.0",
+ org.apache.log4j;bundle-version="1.2.15"
+Export-Package: hu.bme.mit.inf.mdvalidator.core

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MDMprovider
+Bundle-SymbolicName: hu.bme.mit.inf.mdvalidator.magicdrawmodelprovider
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ com.nomagic.magicdraw.eclipse.rcp,
+ org.eclipse.incquery.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: hu.bme.mit.inf.mdvalidator.magicdrawmodelprovider
