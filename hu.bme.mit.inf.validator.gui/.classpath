@@ -3,9 +3,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Program Files/MagicDraw UML/lib/md_api.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/MagicDraw UML/lib/md_foundation_1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/MagicDraw UML/lib/uml2.jar"/>
 	<classpathentry kind="lib" path="swing2swt.jar"/>
+	<classpathentry kind="lib" path="md_api.jar"/>
+	<classpathentry kind="lib" path="md_foundation_1.0.jar"/>
+	<classpathentry kind="lib" path="uml2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,0 +1,59 @@
+package test
+
+import "http://www.nomagic.com/magicdraw/UML/2.4.1"
+
+pattern Refined_Use_Cases(uc : UseCase) {
+	UseCase.supplierDependency.client(uc,a);
+	Activity(a);
+}
+
+pattern Refined_Activities(act : Activity) {
+	Activity.supplierDependency.client(act, c);
+	Collaboration(c);
+}
+
+pattern Satisfied_Requirements(req : Class) {
+	Class.appliedStereotypeInstance.classifier.name(req, "functionalRequirement");
+	Class.supplierDependency.appliedStereotypeInstance.classifier.name(req, "Satisfy");
+	Class.supplierDependency.client(req, bl);
+	Class(bl);
+	Class.appliedStereotypeInstance.classifier.name(bl, "Block");
+} or {
+	Class.appliedStereotypeInstance.classifier.name(req, "Requirement");
+	Class.supplierDependency.appliedStereotypeInstance.classifier.name(req, "Satisfy");
+	Class.supplierDependency.client(req, bl);
+	Class(bl);
+	Class.appliedStereotypeInstance.classifier.name(bl, "Block");
+}
+
+
+@Constraint(
+	location = uc,
+	message = "The Use Case named $uc.name$ is not refined by an activity",
+	severity = "error"
+)
+pattern Not_Refined_Use_Cases(uc : UseCase) {
+	neg find Refined_Use_Cases(uc);
+}
+
+@Constraint(
+	location = uc,
+	message = "The activity named $uc.name$ is not refined by a collaboration",
+	severity = "error"
+)
+pattern Not_Refined_Activities(uc : Activity) {
+	neg find Refined_Activities(uc);
+}
+
+@Constraint(
+	location = req,
+	message = "The requirement named $req.name$ is not satisfied",
+	severity = "warning"
+)
+pattern Not_Satisfied_Requirements(req : Class){
+	Class.appliedStereotypeInstance.classifier.name(req, "functionalRequirement");
+	neg find Satisfied_Requirements(req);
+} or {
+	Class.appliedStereotypeInstance.classifier.name(req, "Requirement");
+	neg find Satisfied_Requirements(req);
+}
